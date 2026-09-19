@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+set -euo pipefail
+HERMES_HOME="${HERMES_HOME:-$HOME/.hermes}"
+export HERMES_HOME
+ROOT="$(cd "$(dirname "$0")/.." && pwd)"
+SCRIPT="$HERMES_HOME/skills/diary-fragment/scripts/diary_cli.py"
+if [ -f "$ROOT/scripts/diary_cli.py" ]; then SCRIPT="$ROOT/scripts/diary_cli.py"; fi
+exec "${PYTHON_BIN:-python3}" "$SCRIPT" "$@"
